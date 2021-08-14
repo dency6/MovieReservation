@@ -1,0 +1,592 @@
+@startuml
+
+title __SAMPLE's Class Diagram__\n
+
+  namespace sample {
+    class sample.CommonMethods {
+        {static} + confirmed : boolean
+        {static} + connection : connectionController
+        {static} + disablelogin : boolean
+        {static} + leftpanecolor : String
+        {static} + loggedout : boolean
+        {static} + running : boolean
+        {static} + server : Server
+        {static} + username : String
+        {static} # page : String
+        - initialx : double
+        - initialy : double
+        - loading : boolean
+        - rotatedpane : boolean
+        + btnEffect()
+        + btnExit()
+        + btnHover()
+        + customiseWindowButtons()
+        + disableAllFocus()
+        + displayUserName()
+        + dropShadow()
+        + findPane()
+        + handleClose()
+        + loadScene()
+        + logOut()
+        + makeBtnFly()
+        + minimiseWindow()
+        + moveWindow()
+        + popButton()
+        + popNode()
+        + rotateButton()
+        + tileExit()
+        + tileHover()
+        - loadLogin()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.Main {
+        {static} + main()
+        + start()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.MovieData {
+        - seats : boolean[]
+        - slotid : int
+        - stdnseats : int
+        + MovieData()
+        + getSeats()
+        + getSlotid()
+        + getStdnseats()
+        + getTotalseats()
+        + getVipseats()
+        + setSeats()
+        + setSlotid()
+        + setStdnseats()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.MovieImages {
+        - id : int
+        - image : Image
+        + MovieImages()
+        + getId()
+        + getImage()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.MovieObject {
+        - duration : String
+        - id : int
+        - image : Image
+        - name : String
+        - rating : double
+        - repeats : int
+        - slots_seats : Map<String, MovieData>
+        - status : String
+        - ticketsold : int
+        + MovieObject()
+        + addSlot()
+        + getDuration()
+        + getImage()
+        + getName()
+        + getRating()
+        + getRepeats()
+        + getSlots()
+        + getStatus()
+        + getTicketsold()
+        + setDuration()
+        + setImage()
+        + setImage()
+        + setImageUrl()
+        + setName()
+        + setRating()
+        + setRepeats()
+        + setSlots()
+        + setStatus()
+        + setTicketsold()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.Server {
+        ~ list : ArrayList<MovieObject>
+        ~ movieimages : ArrayList<MovieImages>
+        + Server()
+        + checkLocalImage()
+        + findMovie()
+        + getAvailableSeats()
+        + getBookings()
+        + getCurrentMovieName()
+        + getCurrentTime()
+        + getCurrentTimeslot()
+        + getDefaultMovie()
+        + getDuration()
+        + getEmptySeats()
+        + getImage()
+        + getMovieNames()
+        + getMovieSlot()
+        + getNextMovie()
+        + getNumberOfSlots()
+        + getRating()
+        + getRepeats()
+        + getSlotID()
+        + getStatus()
+        + getTicketSold()
+        + getTitle()
+        + initialise()
+        + setStdBookings()
+        + setVipBookings()
+    }
+  }
+  
+
+  namespace sample {
+    enum Timetable {
+      SCREEN1_SLOT1
+      SCREEN1_SLOT2
+      SCREEN1_SLOT3
+      SCREEN1_SLOT4
+      SCREEN2_SLOT1
+      SCREEN2_SLOT2
+      SCREEN2_SLOT3
+      SCREEN2_SLOT4
+      SCREEN3_SLOT1
+      SCREEN3_SLOT2
+      SCREEN3_SLOT3
+      SCREEN3_SLOT4
+      x
+      y
+    }
+  }
+  
+
+  namespace sample {
+    class sample.checkoutController {
+        {static} + adulttickets : int
+        {static} + childtickets : int
+        {static} + ismovieselected : boolean
+        {static} + issuedticket : boolean
+        {static} + isvip : boolean
+        {static} + seatsselected : boolean
+        {static} + selectedmovie : String
+        {static} + selectedscreen : String
+        {static} + selectedtime : String
+        {static} + seniortickets : int
+        {static} + totalprice : double
+        - adultcombo : JFXComboBox
+        - adultprice : double
+        - adultpricelabel : Label
+        - checkbox : JFXCheckBox
+        - checkoutbtn : JFXButton
+        - childcombo : JFXComboBox
+        - childprice : double
+        - childpricelabel : Label
+        - closebtn : JFXButton
+        - datelabel : Label
+        - errorlabel : Label
+        - hided : boolean
+        - homebtn : JFXButton
+        - leftpane : AnchorPane
+        - logoutbtn : JFXButton
+        - mainpane : AnchorPane
+        - minimisebtn : JFXButton
+        - movieCombo : JFXComboBox
+        - movieImage : ImageView
+        - moviePane : AnchorPane
+        - moviescreensbtn : JFXButton
+        - resetbtn : JFXButton
+        - screenlabel : Label
+        - seatscontent : AnchorPane
+        - selectPane : AnchorPane
+        - seniorcombo : JFXComboBox
+        - seniorprice : double
+        - seniorpricelabel : Label
+        - startImage : Rectangle
+        - startText : Label
+        - ticketPriceLabel : Label
+        - timelabel : Label
+        - toppane : AnchorPane
+        - userlabel : Label
+        - viewscreensbtn : JFXButton
+        - vipextra : double
+        - viptogglebtn : JFXToggleButton
+        + checkTimeslots()
+        {static} + getSelectedMovieSlot()
+        + handleChoice()
+        + handleVIP()
+        + initialize()
+        + movieDetails()
+        + resetPage()
+        + showPopUp()
+        + validatePage()
+        - fadeErrorLabel()
+        - setUpLogic()
+        - updatePrices()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.connectionController {
+        {static} + serverUrl : String
+        ~ client : HttpClient
+        + connectionController()
+        + getData()
+        + getFile()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.homeController {
+        {static} + viewmovie : boolean
+        {static} + viewmoviename : String
+        - addbtn : JFXButton
+        - closebtn : JFXButton
+        - datelabel : Label
+        - duration1 : Duration
+        - duration2 : Duration
+        - duration3 : Duration
+        - imageshifted : boolean[]
+        - infopanes : AnchorPane[]
+        - issuebtns : JFXButton[]
+        - leftpane : AnchorPane
+        - mainhomepane : AnchorPane
+        - minimisebtn : JFXButton
+        - moviescreensbtn : JFXButton
+        - p1 : AnchorPane
+        - p1shadow : AnchorPane
+        - p2 : AnchorPane
+        - p2shadow : AnchorPane
+        - p3 : AnchorPane
+        - p3shadow : AnchorPane
+        - rotatedpane : boolean
+        - s1availableseats : Label
+        - s1infopane : AnchorPane
+        - s1issuebtn : JFXButton
+        - s1movieduration : Label
+        - s1movieimage : ImageView
+        - s1moviename : Label
+        - s1nextmovie : Label
+        - s1rating : Label
+        - s1repeatsleft : Label
+        - s1status : Label
+        - s1tile1 : AnchorPane
+        - s1tile2 : AnchorPane
+        - s1tile3 : AnchorPane
+        - s1tile4 : AnchorPane
+        - s1tile5 : AnchorPane
+        - s1tile6 : AnchorPane
+        - s1timeremaining : Label
+        - s1timeslot : Label
+        - s2availableseats : Label
+        - s2infopane : AnchorPane
+        - s2issuebtn : JFXButton
+        - s2movieduration : Label
+        - s2movieimage : ImageView
+        - s2moviename : Label
+        - s2nextmovie : Label
+        - s2rating : Label
+        - s2repeatsleft : Label
+        - s2status : Label
+        - s2tile1 : AnchorPane
+        - s2tile2 : AnchorPane
+        - s2tile3 : AnchorPane
+        - s2tile4 : AnchorPane
+        - s2tile5 : AnchorPane
+        - s2tile6 : AnchorPane
+        - s2timeremaining : Label
+        - s2timeslot : Label
+        - s3availableseats : Label
+        - s3infopane : AnchorPane
+        - s3issuebtn : JFXButton
+        - s3movieduration : Label
+        - s3movieimage : ImageView
+        - s3moviename : Label
+        - s3nextmovie : Label
+        - s3rating : Label
+        - s3repeatsleft : Label
+        - s3status : Label
+        - s3tile1 : AnchorPane
+        - s3tile2 : AnchorPane
+        - s3tile3 : AnchorPane
+        - s3tile4 : AnchorPane
+        - s3tile5 : AnchorPane
+        - s3tile6 : AnchorPane
+        - s3timeremaining : Label
+        - s3timeslot : Label
+        - tabpane : JFXTabPane
+        - tiles : AnchorPane[]
+        - timelabel : Label
+        - todaysdate : String
+        - todaystime : String
+        - toppane : AnchorPane
+        - userlabel : Label
+        - x : double
+        - y : double
+        + addShiftImagdeEffect()
+        + getImageShiftTransitions()
+        + initialize()
+        + populateScreens()
+        + rotatePane()
+        + setIssueTicketsActions()
+        + setTimer()
+        + setUpArrays()
+        + setUpTiles()
+        + shiftImage()
+        + transitionImage()
+        + viewMovieScreens()
+        - animate()
+        - displayTime()
+        - popNode()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.loginController {
+        - closebtn : JFXButton
+        - errorlabel : Label
+        - forgotpassword : Label
+        - loginbtn : JFXButton
+        - loginsuccess : boolean
+        - mainloginpane : AnchorPane
+        - minimisebtn : JFXButton
+        - passfield : JFXPasswordField
+        - progressbar : JFXProgressBar
+        - stackpane : StackPane
+        - userfield : JFXTextField
+        - vanished : boolean
+        + initialize()
+        + showDialog()
+        + staffLogin()
+        - animateLogin()
+        - checkUser()
+        - fieldListners()
+        - loadHome()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.logoutController {
+        - closebtn : JFXButton
+        - logoutpane : AnchorPane
+        - nobtn : JFXButton
+        - yesbtn : JFXButton
+        + handleConfirmation()
+        + initialize()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.moviesController {
+        {static} + currentmovie : String
+        {static} + slotseatNo : int
+        - SLOT1 : AnchorPane
+        - SLOT2 : AnchorPane
+        - SLOT3 : AnchorPane
+        - SLOT4 : AnchorPane
+        - addbtn : JFXButton
+        - allschedulesbtn : JFXButton
+        - closebtn : JFXButton
+        - currentslots : int
+        - detailsbtn : JFXButton
+        - faded : boolean
+        - homebtn : JFXButton
+        - issueticketbtn : JFXButton
+        - leftpane : AnchorPane
+        - logoutbtn : JFXButton
+        - mainmoviespane : AnchorPane
+        - minimisebtn : JFXButton
+        - movieduration : Label
+        - movieimage : ImageView
+        - movienames : String[]
+        - moviepane : AnchorPane
+        - movierating : Label
+        - movierepeats : Label
+        - movieticketsold : Label
+        - movietitle : Label
+        - searchfield : JFXTextField
+        - searchicon : JFXButton
+        - showingall : boolean
+        - slot1shadow : AnchorPane
+        - slot2shadow : AnchorPane
+        - slot3shadow : AnchorPane
+        - slot4shadow : AnchorPane
+        - tablepane : AnchorPane
+        - toppane : AnchorPane
+        - userlabel : Label
+        + animate()
+        + fadeEffect()
+        + initialize()
+        + issueTicket()
+        + rollEffect()
+        + showAllSchedule()
+        + slotsEffect()
+        + startSearch()
+        - animateTable()
+        - assignPane()
+        - fadeMovieNodes()
+        - getCurrentPanes()
+        - getLocationOnTable()
+        - getSlotsFadeArray()
+        - goToAddPage()
+        - mouseEnteredEffect()
+        - mouseExitedEffect()
+        - searchMovie()
+        - setDefaultMovie()
+        - setMovie()
+        - setScreenName()
+        - setSubPane()
+        - setTimeName()
+        - setTimeSlots()
+        - viewMovieOnWeb()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.paymentController {
+        + expmonthbox : JFXComboBox
+        + expyearbox : JFXComboBox
+        {static} + reversemethod : boolean
+        {static} + scene : String
+        - adultslabel : Label
+        - backcardbtn : JFXButton
+        - backcashbtn : JFXButton
+        - cancelbtn : JFXButton
+        - cardfield : JFXTextField
+        - cardimage : ImageView
+        - cardpayment : AnchorPane
+        - cashimage : ImageView
+        - cashpayment : AnchorPane
+        - changefield : JFXTextField
+        - childslabel : Label
+        - closebtn : JFXButton
+        - cvvfield : JFXTextField
+        - emailfield : JFXTextField
+        - errorlabel : Label
+        - firstnamefield : JFXTextField
+        - handledpayment : boolean
+        - hided : boolean
+        - insidepane : AnchorPane
+        - lastnamefield : JFXTextField
+        - mainpane : AnchorPane
+        - methodpane : AnchorPane
+        - moneytaken : boolean
+        - moveto : String
+        - pencefield : JFXTextField
+        - placeorderbtn : JFXButton
+        - poundsfield : JFXTextField
+        - printing : boolean
+        - selectedimage : ImageView
+        - seniorslabel : Label
+        - stackpane : StackPane
+        - toppane : AnchorPane
+        - totalpricelabel : Label
+        - viplabel : Label
+        + animate()
+        + cancelOrder()
+        + handleButtons()
+        + initialize()
+        - fadeErrorLabel()
+        - isValidEmailAddress()
+        - load()
+        - loadUpData()
+        - printReceipt()
+        - processTicketData()
+        - roll()
+        - scaleImage()
+        - setCardpageLogic()
+        - setErrorLabelLogic()
+        - setNumericFieldValidation()
+        - setTextFieldValidation()
+        - setUpCardPage()
+        - setUpCashPage()
+        - showDialog()
+        - updateChangeField()
+        - validateCardPage()
+        - validateCashPage()
+    }
+  }
+  
+
+  namespace sample {
+    class sample.seatsController {
+        {static} + booked : boolean[]
+        {static} + bookings : boolean[]
+        - E1 : JFXButton
+        - E10 : JFXButton
+        - E2 : JFXButton
+        - E3 : JFXButton
+        - E4 : JFXButton
+        - E5 : JFXButton
+        - E6 : JFXButton
+        - E7 : JFXButton
+        - E8 : JFXButton
+        - E9 : JFXButton
+        - F1 : JFXButton
+        - F10 : JFXButton
+        - F2 : JFXButton
+        - F3 : JFXButton
+        - F4 : JFXButton
+        - F5 : JFXButton
+        - F6 : JFXButton
+        - F7 : JFXButton
+        - F8 : JFXButton
+        - F9 : JFXButton
+        - cancelbtn : JFXButton
+        - confirmbtn : JFXButton
+        - limiterror : Label
+        - mainpane : AnchorPane
+        - maxseats : int
+        - movietitle : Label
+        - numberofseats : int
+        - seats : JFXButton[]
+        - seatsselected : Label
+        - totalprice : Label
+        - totaltickets : Label
+        + handleCancellation()
+        + handleConfirmation()
+        + initialize()
+        - initialiseArray()
+        - popSeat()
+        - setBookedSeats()
+        - setUpSeats()
+    }
+  }
+  
+
+  sample.Main -up-|> javafx.application.Application
+  sample.checkoutController .up.|> javafx.fxml.Initializable
+  sample.checkoutController -up-|> sample.CommonMethods
+  sample.homeController .up.|> javafx.fxml.Initializable
+  sample.homeController -up-|> sample.CommonMethods
+  sample.loginController .up.|> javafx.fxml.Initializable
+  sample.loginController -up-|> sample.CommonMethods
+  sample.logoutController .up.|> javafx.fxml.Initializable
+  sample.logoutController -up-|> sample.CommonMethods
+  sample.moviesController .up.|> javafx.fxml.Initializable
+  sample.moviesController -up-|> sample.CommonMethods
+  sample.paymentController .up.|> javafx.fxml.Initializable
+  sample.paymentController -up-|> sample.CommonMethods
+  sample.seatsController .up.|> javafx.fxml.Initializable
+  sample.seatsController -up-|> sample.CommonMethods
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
