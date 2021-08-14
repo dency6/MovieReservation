@@ -221,7 +221,7 @@ public class loginController extends CommonMethods implements Initializable{
 //        String[] value = {username, password, "", "json"};
 //        JsonObject parser = CommonMethods.connection.getData("Login.jsp", name, value);
 
-        if(username.equals("dency") && password.equals("dency")){
+        if(username.equals("Dency") && password.equals("Dency")){
            return true;
         } else {
            Platform.runLater(new Runnable() {
