@@ -1,4 +1,5 @@
 A JavaFx project to book tickets for movies by the staff.
+Using Java 8
 
 ![image](https://user-images.githubusercontent.com/68047026/129467196-bcbb13ef-1155-4d85-b670-830a5825f84c.png)
 ![image](https://user-images.githubusercontent.com/68047026/129467200-b070e2f8-efc5-4e99-9bb2-e2ea17982d54.png)
